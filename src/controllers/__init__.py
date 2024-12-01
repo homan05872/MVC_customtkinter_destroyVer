@@ -1,0 +1,2 @@
+from .page1_controller import Page1Controller
+from .page2_controller import Page2Controller

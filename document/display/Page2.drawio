@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="XA8ji3IrPg0_N0K0ZhlI" name="ページ1">
+        <mxGraphModel dx="667" dy="469" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D4D4D;fontColor=#CC6600;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="140" width="500" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#333333;strokeColor=#666666;arcSize=9;" parent="1" vertex="1">
+                    <mxGeometry x="255" y="240" width="190" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A1A1A;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="140" width="500" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font color=&quot;#ffffff&quot;&gt;MVCテンプレート&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="145" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;font color=&quot;#ffffff&quot;&gt;title&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontColor=#333333;strokeColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="275" y="260" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="content" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontColor=#FFFFFF;strokeColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="275" y="310" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Back to Page1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#6c8ebf;arcSize=9;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="302" y="370" width="96" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="イベント②" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;direction=south;position2=1;base=16;size=30;position=0.21;fillColor=default;fontColor=#FF8000;strokeColor=#CC6600;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="350" width="110" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

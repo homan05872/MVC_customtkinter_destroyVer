@@ -1,0 +1,237 @@
+main.py
+from core import App
+
+def main():
+    app = App()
+    app.run()
+
+if __name__ == "__main__":
+    main()
+
+app.py
+from models.mymodel import MyModel
+from core import CustomCTk
+from controllers import Page1Controller, Page2Controller
+from models.mymodel import MyModel
+
+class App:
+    def __init__(self) -> None:
+        """ 初期化処理
+        """
+        self.root = CustomCTk()
+        
+        # モデルの初期化
+        self.my_model = MyModel()
+        
+        # コントローラの初期化
+        self.page1_conn = Page1Controller(self.root, self.my_model)
+        self.page2_conn = Page2Controller(self.root, self.my_model)
+
+    def run(self) -> None:
+        """ アプリ起動
+        """
+        # 最初のページを表示
+        self.page1_conn.show()
+        # メインループ
+        self.root.mainloop()
+
+custom_ctk.py
+import customtkinter as ctk
+from tkinterdnd2 import TkinterDnD
+from typing import Any
+
+
+class CustomCTk(ctk.CTk, TkinterDnD.DnDWrapper):
+    def __init__(self, *args, **kwargs) -> None:
+        """ 初期化処理
+        """
+        super().__init__(*args, **kwargs)
+        self.now_page:Any = None            # 現在ページのコントローラインスタンス
+        self.pages_conn:dict[str,Any] = {}  # 全ページのコントローラの辞書リスト
+        # テーマ設定
+        ctk.set_appearance_mode('dark')       # Modes: system (default), light, dark
+        ctk.set_default_color_theme('blue')   # Themes: blue (default), dark-blue, green
+        
+        # Gridレイアウトの設定
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
+        
+        self.title("MVCテンプレート")   # ウィンドウキャプション
+        self.geometry("550x550")       # ウィンドウサイズ
+        
+        # TkinterDnDのイベントを使用できるようにする設定
+        self.TkdndVersion = TkinterDnD._require(self)
+        
+    def set_page(self, view_class:Any, controller:Any, template_name:str=None) -> None:
+        """ 管理するコントローラクラスの登録処理(変数[self.pages_conn]で管理)
+
+        Args:
+            view_class (Any): ビュークラス
+            controller (Any): コントローラクラスのインスタンス
+            template_name (str, optional): テンプレート名. ※Noneの場合はビュークラス名
+        """
+        if template_name:
+            page_name = template_name
+        else:    
+            page_name = view_class.__name__
+        self.pages_conn[page_name] = controller
+
+    def show_page(self, page_name:str) -> None:
+        """ ページ遷移呼び出し処理
+
+        Args:
+            page_name (str): ページ名
+        """
+        controller = self.pages_conn[page_name]
+        controller.show()
+
+page1_controller.py
+from core import BaseController
+from views import Page1
+from typing import Any
+
+class Page1Controller(BaseController):
+    def __init__(self, root:Any, my_model=None) -> None:
+        """初期化処理
+
+        Args:
+            root (Any): CustomCtkクラスのインスタンス
+            my_model (_type_, optional): MyModelクラスのインスタンス. Defaults to None.
+        """
+        super().__init__(root, Page1)
+        self.my_model = my_model
+
+    def _send_view_data(self) -> dict:
+        """ 画面表示用データを渡す処理
+
+        Returns:
+            dict: 表示用データ
+        """
+        title = self.my_model.title
+        content = self.my_model.content
+        
+        context = {'title': title, 'content': content}
+        return context
+
+
+page2_controller.py
+from views import Page2
+from core import BaseController
+from typing import Any
+
+class Page2Controller(BaseController):
+    def __init__(self, root:Any, my_model:Any) -> None:
+        """初期化処理
+
+        Args:
+            root (Any): CustomCtkクラスのインスタンス
+            my_model (_type_, optional): MyModelクラスのインスタンス. Defaults to None.
+        """
+        super().__init__(root, Page2)
+        self.my_model = my_model
+
+    def _send_view_data(self) -> dict:
+        """ 画面表示用データを渡す処理
+
+        Returns:
+            dict: 表示用データ
+        """
+        title = self.my_model.title
+        content = self.my_model.content
+        
+        context = {'title': title, 'content': content}
+        return context
+
+mymodel.py
+import tkinter as tk
+
+class MyModel:
+    def __init__(self) -> None:
+        self.title = tk.StringVar(value="Page 2 Title")
+        self.content = tk.StringVar(value="This is the content of Page 2")
+
+page1.py
+import tkinter as tk
+import customtkinter as ctk
+from functools import partial
+from typing import Any
+
+class Page1(ctk.CTkFrame):
+    def __init__(self, master:ctk.CTk, controller:Any, data:dict|None, **kwargs) -> None:
+        """ 初期化処理
+
+        Args:
+            master (ctk.CTk): CustomCtkクラスのインスタンス
+            controller (Any): コントローラクラスのインスタンス
+            data (dict | None): 表示用データ
+        """
+        super().__init__(master, **kwargs)
+        self.controller = controller
+        self.data = data
+        
+        # Gridレイアウトの設定
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
+        
+        # UI生成
+        self.build_ui()
+
+    def build_ui(self) -> None:
+        """ UI生成処理
+        """
+        # 中央にフレーム配置
+        self.frame = ctk.CTkFrame(self)
+        self.frame.grid(row=0, column=0, padx=20, pady=20)
+        # ページタイトル
+        self.label = ctk.CTkLabel(self.frame, text="This is Page 1")
+        self.label.grid(row=0, column=0, padx=20, pady=20)
+        # ページ２に表示するタイトル入力
+        self.title_input = ctk.CTkEntry(self.frame, textvariable=self.data["title"], width=300)
+        self.title_input.grid(row=1, column=0, padx=20, pady=20)
+        # ページ２に表示するコンテンツ入力
+        self.content_input = ctk.CTkEntry(self.frame, textvariable=self.data["content"], width=300)
+        self.content_input.grid(row=2, column=0, padx=20, pady=20)
+        # ページ２リンクボタン
+        self.button = ctk.CTkButton(self.frame, text="Send", command=partial(self.controller.goto_page, 'Page2'))
+        self.button.grid(row=3, column=0, padx=20, pady=20)
+
+page2.py
+import customtkinter as ctk
+from functools import partial
+from typing import Any
+
+class Page2(ctk.CTkFrame):
+    def __init__(self, master:ctk.CTk, controller:Any, data:dict|None, **kwargs) -> None:
+        """ 初期化処理
+
+        Args:
+            master (ctk.CTk): CustomCtkクラスのインスタンス
+            controller (Any): コントローラクラスのインスタンス
+            data (dict | None): 表示用データ
+        """
+        super().__init__(master, **kwargs)
+        self.controller = controller
+        self.data = data
+        
+        # Gridレイアウトの設定
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
+        
+        # UI生成
+        self.build_ui()
+
+    def build_ui(self) -> None:
+        """ UI生成処理
+        """
+        # 中央にフレーム配置
+        self.frame = ctk.CTkFrame(self)
+        self.frame.grid(row=0, column=0, padx=20, pady=20)
+        # ページタイトル
+        self.title_label = ctk.CTkLabel(self.frame, text=self.data["title"].get())
+        self.title_label.grid(row=0, column=0, padx=20, pady=10)
+        # ページコンテンツ
+        self.content_label = ctk.CTkLabel(self.frame, text=self.data["content"].get())
+        self.content_label.grid(row=1, column=0, padx=20, pady=10)
+        # ページ１リンクボタン
+        self.back_button = ctk.CTkButton(self.frame, text="Back to Page 1", command=partial(self.controller.goto_page, "Page1"))
+        self.back_button.grid(row=2, column=0, padx=20, pady=20)
