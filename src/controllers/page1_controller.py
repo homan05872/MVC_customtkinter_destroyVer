@@ -3,14 +3,14 @@ from views import Page1
 from typing import Any
 
 class Page1Controller(BaseController):
-    def __init__(self, root:Any, my_model=None) -> None:
+    def __init__(self, root:Any, my_model:Any=None, template_name:str=None) -> None:
         """初期化処理
 
         Args:
             root (Any): CustomCtkクラスのインスタンス
             my_model (_type_, optional): MyModelクラスのインスタンス. Defaults to None.
         """
-        super().__init__(root, Page1)
+        super().__init__(root, Page1, template_name)
         self.my_model = my_model
 
     def _send_view_data(self) -> dict:

@@ -13,8 +13,8 @@ class App:
         self.my_model = MyModel()
         
         # コントローラの初期化
-        self.page1_conn = Page1Controller(self.root, self.my_model)
-        self.page2_conn = Page2Controller(self.root, self.my_model)
+        self.page1_conn = Page1Controller(self.root, self.my_model, template_name='Page1')
+        self.page2_conn = Page2Controller(self.root, self.my_model, template_name='Page2')
 
     def run(self) -> None:
         """ アプリ起動

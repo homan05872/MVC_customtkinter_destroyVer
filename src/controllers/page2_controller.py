@@ -3,7 +3,7 @@ from core import BaseController
 from typing import Any
 
 class Page2Controller(BaseController):
-    def __init__(self, root:Any, my_model:Any) -> None:
+    def __init__(self, root:Any, my_model:Any, template_name:str=None) -> None:
         """初期化処理
 
         Args:
