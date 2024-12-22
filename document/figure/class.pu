@@ -1,0 +1,71 @@
+@startuml test
+
+!define CTk customtkinter.CTk
+!define CTkFrame customtkinter.CTkFrame
+!define StringVar tkinter.StringVar
+
+class App {
+    + root: CustomCTk
+    + my_model: MyModel
+    - conns: コントローラ群
+    - current_conn: コントローラ
+    + show_page(template_name: str): void
+    + run(): void
+}
+
+class CustomCTk {
+    + title: str
+    + __init__(*args, **kwargs): void
+}
+
+abstract class BaseController {
+    + app: App
+    + root: CustomCTk
+    - ViewClass: ビューClass
+    - view: ビューIns
+    + show(): void
+    + goto_page(template_name: str): void
+    # _set_view_event(): void
+    # _send_view_data(): dict | None
+}
+
+class Page1Controller {
+    - my_model: MyModel
+    + _set_view_event(): void
+    + _send_view_data(): dict
+}
+
+class Page2Controller {
+    - my_model: MyModel
+    + _set_view_event(): void
+    + _send_view_data(): dict
+}
+
+class MyModel {
+    + title: StringVar
+    + content: StringVar
+}
+
+class Page1 {
+    - data: dict | None
+    + build_ui(): void
+}
+
+class Page2 {
+    - data: dict | None
+    + build_ui(): void
+}
+
+App "1" *-right- "1" CustomCTk
+App "1" *-- "1" MyModel
+Page1Controller --> MyModel : データ取得
+Page2Controller --> MyModel : データ取得
+BaseController <|-- Page1Controller : 継承
+BaseController <|-- Page2Controller : 継承
+App "1" *-- "1" Page1Controller : 管理
+App "1" *-- "1" Page2Controller : 管理
+
+Page1Controller "1" *-- "1" Page1 : UI生成
+Page2Controller "1" *-- "1" Page2 : UI生成
+
+@enduml

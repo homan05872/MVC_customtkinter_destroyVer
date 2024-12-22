@@ -1,0 +1,79 @@
+<mxfile host="65bd71144e">
+    <diagram id="XOwkcMtIgAQztVCDbSVZ" name="ページ1">
+        <mxGraphModel dx="903" dy="490" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="19" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D4D4D;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="140" width="500" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#333333;strokeColor=#666666;arcSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="255" y="220" width="190" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="140" width="500" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;font color=&quot;#ffffff&quot;&gt;MVCテンプレート&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="145" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;font color=&quot;#ffffff&quot;&gt;MVC Template&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D4D4D;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="275" y="275" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;font color=&quot;#ffffff&quot; style=&quot;font-size: 8px;&quot;&gt;Page2 Title:&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="275" y="260" width="55" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Welcometo MVC Template" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D4D4D;fontColor=#FFFFFF;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="275" y="330" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Send" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#6c8ebf;arcSize=9;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="302" y="390" width="96" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="イベント[1-1]" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;direction=south;position2=1;base=16;size=30;position=0.21;fillColor=default;fontColor=#FF8000;strokeColor=#CC6600;" vertex="1" parent="1">
+                    <mxGeometry x="398" y="370" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;font color=&quot;#ffffff&quot;&gt;This is Page1&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="285" y="230" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;font color=&quot;#ffffff&quot; style=&quot;font-size: 8px;&quot;&gt;Page2 Content:&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="275" y="315" width="75" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D4D4D;fontColor=#CC6600;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="145" width="500" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#333333;strokeColor=#666666;arcSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="845" y="245" width="190" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A1A1A;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="145" width="500" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="&lt;font color=&quot;#ffffff&quot;&gt;MVCテンプレート&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="150" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;MVC Template&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontColor=#333333;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="865" y="265" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="Welcometo MVC Template" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="865" y="315" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="Back to Page1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#6c8ebf;arcSize=9;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="892" y="375" width="96" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="イベント[2-1]" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;direction=south;position2=1;base=16;size=30;position=0.21;fillColor=default;fontColor=#FF8000;strokeColor=#CC6600;" vertex="1" parent="1">
+                    <mxGeometry x="1000" y="355" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" style="edgeStyle=none;html=1;entryX=0.049;entryY=1.314;entryDx=0;entryDy=0;strokeColor=#FF8000;strokeWidth=2;exitX=0.921;exitY=0.455;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="20" target="34">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF8000;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="258" width="180" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF8000;" vertex="1" parent="1">
+                    <mxGeometry x="855" y="265" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Page1の入力フォームの値が&lt;br&gt;Page2のタイトルとコンテンツ&lt;br&gt;として表示される" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;strokeColor=#FF8000;fillColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="200" width="200" height="110" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

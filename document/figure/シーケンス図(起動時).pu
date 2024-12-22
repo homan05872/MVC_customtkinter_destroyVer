@@ -1,0 +1,33 @@
+@startuml シーケンス図(起動時)
+
+actor User as user
+participant main.py as Main
+participant App
+participant CustomCTk
+participant MyModel
+participant Page1Controller
+participant Page2Controller
+participant Page1
+
+== アプリケーション初期化 ==
+user -> Main : 実行
+Main -> App : インスタンス生成\n※変数self.appで保持
+App -> CustomCTk : インスタンス生成\nテーマカラーやウィンドウサイズ設定\n※変数self.rootで保持
+App -> MyModel : インスタンス生成\n保持データの初期値設定\n※変数self.my_modelで保持
+App -> Page1Controller : インスタンス生成\n※変数self.connsで保持(辞書型リスト(キー："Page1"))
+App -> Page2Controller : インスタンス生成\n※変数self.connsで保持(辞書型リスト(キー："Page2"))
+
+== 最初のページを表示 ==
+Main -> App : self.app.run()\nアプリ起動処理
+App -> Page1Controller : self.app.show_page("Page1")\nPage1の表示処理呼び出し
+Page1Controller -> MyModel : _send_view_data()\n画面表示用データ取得
+Page1Controller -> Page1 : インスタンス生成\n初期化処理\n※変数self.viewで保持
+Page1 -> Page1 : build_ui(self)\nUI生成
+Page1Controller -> Page1Controller : self.set_view_event()\n画面のUI要素(ボタンなど)のイベントに各メソッドを紐づけ
+
+
+== メインループ開始（起動） ==
+App -> CustomCTk : self.root.mainloop()\nアプリ起動
+CustomCTk -> user : 画面表示（Page1が表示される）
+
+@enduml

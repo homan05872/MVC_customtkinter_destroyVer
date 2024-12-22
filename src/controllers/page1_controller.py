@@ -1,17 +1,24 @@
 from core import BaseController
 from views import Page1
 from typing import Any
+from functools import partial
 
 class Page1Controller(BaseController):
-    def __init__(self, root:Any, my_model:Any=None, template_name:str=None) -> None:
+    def __init__(self, app:Any, my_model:Any=None) -> None:
         """初期化処理
 
         Args:
-            root (Any): CustomCtkクラスのインスタンス
+            app (Any): Appクラスのインスタンス
             my_model (_type_, optional): MyModelクラスのインスタンス. Defaults to None.
         """
-        super().__init__(root, Page1, template_name)
+        super().__init__(app, Page1)
+        self.view:Page1
         self.my_model = my_model
+        
+    def _set_view_event(self) -> None:
+        """ ビューのUI要素へイベントメソッドを紐づける為のメソッド
+        """
+        self.view.button.configure(command=partial(self.goto_page, "Page2"))
 
     def _send_view_data(self) -> dict:
         """ 画面表示用データを渡す処理
@@ -24,3 +31,5 @@ class Page1Controller(BaseController):
         
         context = {'title': title, 'content': content}
         return context
+    
+    

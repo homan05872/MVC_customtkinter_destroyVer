@@ -1,19 +1,15 @@
-import tkinter as tk
 import customtkinter as ctk
-from functools import partial
 from typing import Any
 
 class Page1(ctk.CTkFrame):
-    def __init__(self, master:ctk.CTk, controller:Any, data:dict|None, **kwargs) -> None:
+    def __init__(self, master:Any, data:dict|None, **kwargs) -> None:
         """ 初期化処理
 
         Args:
             master (ctk.CTk): CustomCtkクラスのインスタンス
-            controller (Any): コントローラクラスのインスタンス
             data (dict | None): 表示用データ
         """
         super().__init__(master, **kwargs)
-        self.controller = controller
         self.data = data
         
         # Gridレイアウトの設定
@@ -39,5 +35,5 @@ class Page1(ctk.CTkFrame):
         self.content_input = ctk.CTkEntry(self.frame, textvariable=self.data["content"], width=300)
         self.content_input.grid(row=2, column=0, padx=20, pady=20)
         # ページ２リンクボタン
-        self.button = ctk.CTkButton(self.frame, text="Send", command=partial(self.controller.goto_page, 'Page2'))
+        self.button = ctk.CTkButton(self.frame, text="Send")
         self.button.grid(row=3, column=0, padx=20, pady=20)

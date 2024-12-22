@@ -1,0 +1,26 @@
+@startuml ページ遷移
+
+actor User as user
+participant Page1
+participant Page1Controller
+participant App
+participant Page2Controller
+participant Page2
+
+== ユーザー操作 ==
+user -> Page1 : "Send"ボタンをクリック
+
+== コントローラによる処理 ==
+Page1 -> Page1Controller : goto_page("Page2")\nページ遷移処理呼び出し
+Page1Controller -> App : show_page("Page2")\n"Page2"のコントローラからShowメソッド呼び出し
+App -> Page2Controller : show()\nPage2表示処理
+Page2Controller -> Page2Controller : self._send_view_data()\n表示用データ取得
+
+== ページ2の表示 ==
+Page2Controller -> Page2 : インスタンス生成※self.viewで保持\nUI生成
+Page2 -> Page2 : build_ui(self)\nUI生成
+Page2Controller -> Page2Controller : self.set_view_event()\n画面のUI要素(ボタンなど)のイベントに各メソッドを紐でづけ
+Page2Controller -> Page2Controller : self.viewをgrid()メソッド画面に配置。
+Page2Controller -> user : ページ2が表示される
+
+@enduml
